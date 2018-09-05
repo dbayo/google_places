@@ -311,13 +311,17 @@ module GooglePlaces
     # @see https://developers.google.com/maps/documentation/places/supported_types List of supported types
     def initialize(url, options, follow_redirects = true)
       retry_options = options.delete(:retry_options) || {}
-
       retry_options[:status] ||= []
       retry_options[:max]    ||= 0
       retry_options[:delay]  ||= 5
       retry_options[:status] = [retry_options[:status]] unless retry_options[:status].is_a?(Array)
-      @response = self.class.get(url, :query => options, :follow_redirects => follow_redirects)
+      params = {query: options, follow_redirects: follow_redirects}
 
+      if options[:fields]
+        params[:fields] = options[:fields]
+      end
+
+      @response = self.class.get(url, params)
       # puts @response.request.last_uri.to_s
 
       return unless retry_options[:max] > 0 && retry_options[:status].include?(@response.parsed_response['status'])
@@ -326,7 +330,7 @@ module GooglePlaces
         for i in (1..retry_options[:max])
           sleep(retry_options[:delay])
 
-          @response = self.class.get(url, :query => options, :follow_redirects => follow_redirects)
+          @response = self.class.get(url, params)
 
           break unless retry_options[:status].include?(@response.parsed_response['status'])
         end
@@ -348,7 +352,7 @@ module GooglePlaces
     end
 
     def execute
-      @response = self.class.get(url, :query => options, :follow_redirects => follow_redirects)
+      @response = self.class.get(url, params)
     end
 
     # Parse errors from the server respons, if any

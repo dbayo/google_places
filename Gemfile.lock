@@ -8,13 +8,18 @@ GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.4.0)
+    coderay (1.1.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.3)
     hashdiff (0.3.7)
     httparty (0.16.2)
       multi_xml (>= 0.5.2)
+    method_source (0.9.0)
     multi_xml (0.6.0)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
       rspec-expectations (~> 3.6.0)
@@ -41,6 +46,7 @@ PLATFORMS
 DEPENDENCIES
   addressable (~> 2.4.0)
   google_places!
+  pry
   rspec (~> 3.0)
   vcr (~> 2.9)
   webmock (~> 1.18)

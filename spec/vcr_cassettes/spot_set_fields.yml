@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/place/details/json?fields=name,opening_hours&key=AIzaSyAbCHqPnQqxStpMF3oeY6rkvAdF8j_8vow&reference=CnRsAAAASc4grenwL0h3X5VPNp5fkDNfqbjt3iQtWIPlKS-3ms9GbnCxR_FLHO0B0ZKCgJSg19qymkeHagjQFB4aUL87yhp4mhFTc17DopK1oiYDaeGthztSjERic8TmFNe-6zOpKSdiZWKE6xlQvcbSiWIJchIQOEYZqunSSZqNDoBSs77bWRoUJcMMVANtSlhy0llKI0MI6VcC7DU
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 05 Sep 2018 15:28:43 GMT
+      Expires:
+      - Wed, 05 Sep 2018 15:33:43 GMT
+      Cache-Control:
+      - public, max-age=300
+      Vary:
+      - Accept-Language
+      Server:
+      - scaffolding on HTTPServer2
+      Content-Length:
+      - '317'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="44,43,39,35"
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAiaHRtbF9hdHRyaWJ1dGlvbnMiIDogW10sCiAgICJyZXN1bHQiIDog
+        ewogICAgICAibmFtZSIgOiAiR29vZ2xlIiwKICAgICAgIm9wZW5pbmdfaG91
+        cnMiIDogewogICAgICAgICAib3Blbl9ub3ciIDogZmFsc2UsCiAgICAgICAg
+        ICJwZXJpb2RzIiA6IFsKICAgICAgICAgICAgewogICAgICAgICAgICAgICAi
+        Y2xvc2UiIDogewogICAgICAgICAgICAgICAgICAiZGF5IiA6IDEsCiAgICAg
+        ICAgICAgICAgICAgICJ0aW1lIiA6ICIxNzMwIgogICAgICAgICAgICAgICB9
+        LAogICAgICAgICAgICAgICAib3BlbiIgOiB7CiAgICAgICAgICAgICAgICAg
+        ICJkYXkiIDogMSwKICAgICAgICAgICAgICAgICAgInRpbWUiIDogIjA4MzAi
+        CiAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfSwKICAgICAgICAgICAg
+        ewogICAgICAgICAgICAgICAiY2xvc2UiIDogewogICAgICAgICAgICAgICAg
+        ICAiZGF5IiA6IDIsCiAgICAgICAgICAgICAgICAgICJ0aW1lIiA6ICIxNzMw
+        IgogICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAib3BlbiIgOiB7
+        CiAgICAgICAgICAgICAgICAgICJkYXkiIDogMiwKICAgICAgICAgICAgICAg
+        ICAgInRpbWUiIDogIjA4MzAiCiAgICAgICAgICAgICAgIH0KICAgICAgICAg
+        ICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAiY2xvc2UiIDog
+        ewogICAgICAgICAgICAgICAgICAiZGF5IiA6IDMsCiAgICAgICAgICAgICAg
+        ICAgICJ0aW1lIiA6ICIxNzMwIgogICAgICAgICAgICAgICB9LAogICAgICAg
+        ICAgICAgICAib3BlbiIgOiB7CiAgICAgICAgICAgICAgICAgICJkYXkiIDog
+        MywKICAgICAgICAgICAgICAgICAgInRpbWUiIDogIjA4MzAiCiAgICAgICAg
+        ICAgICAgIH0KICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAg
+        ICAgICAgICAiY2xvc2UiIDogewogICAgICAgICAgICAgICAgICAiZGF5IiA6
+        IDQsCiAgICAgICAgICAgICAgICAgICJ0aW1lIiA6ICIxNzMwIgogICAgICAg
+        ICAgICAgICB9LAogICAgICAgICAgICAgICAib3BlbiIgOiB7CiAgICAgICAg
+        ICAgICAgICAgICJkYXkiIDogNCwKICAgICAgICAgICAgICAgICAgInRpbWUi
+        IDogIjA4MzAiCiAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfSwKICAg
+        ICAgICAgICAgewogICAgICAgICAgICAgICAiY2xvc2UiIDogewogICAgICAg
+        ICAgICAgICAgICAiZGF5IiA6IDUsCiAgICAgICAgICAgICAgICAgICJ0aW1l
+        IiA6ICIxNzMwIgogICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAi
+        b3BlbiIgOiB7CiAgICAgICAgICAgICAgICAgICJkYXkiIDogNSwKICAgICAg
+        ICAgICAgICAgICAgInRpbWUiIDogIjA4MzAiCiAgICAgICAgICAgICAgIH0K
+        ICAgICAgICAgICAgfQogICAgICAgICBdLAogICAgICAgICAid2Vla2RheV90
+        ZXh0IiA6IFsKICAgICAgICAgICAgIk1vbmRheTogODozMCBBTSDigJMgNToz
+        MCBQTSIsCiAgICAgICAgICAgICJUdWVzZGF5OiA4OjMwIEFNIOKAkyA1OjMw
+        IFBNIiwKICAgICAgICAgICAgIldlZG5lc2RheTogODozMCBBTSDigJMgNToz
+        MCBQTSIsCiAgICAgICAgICAgICJUaHVyc2RheTogODozMCBBTSDigJMgNToz
+        MCBQTSIsCiAgICAgICAgICAgICJGcmlkYXk6IDg6MzAgQU0g4oCTIDU6MzAg
+        UE0iLAogICAgICAgICAgICAiU2F0dXJkYXk6IENsb3NlZCIsCiAgICAgICAg
+        ICAgICJTdW5kYXk6IENsb3NlZCIKICAgICAgICAgXQogICAgICB9CiAgIH0s
+        CiAgICJzdGF0dXMiIDogIk9LIgp9Cg==
+    http_version: 
+  recorded_at: Wed, 05 Sep 2018 15:28:43 GMT
+recorded_with: VCR 2.9.3

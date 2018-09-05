@@ -1,3 +1,4 @@
+require 'pry'
 require 'rubygems'
 require 'erb'
 require 'httparty'

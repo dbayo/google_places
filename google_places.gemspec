@@ -22,4 +22,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'addressable', '~> 2.4.0'
   s.add_development_dependency 'webmock',     '~> 1.18'
   s.add_development_dependency 'vcr',         '~> 2.9'
+  s.add_development_dependency 'pry'
 end

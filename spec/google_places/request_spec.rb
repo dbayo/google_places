@@ -194,7 +194,19 @@ describe GooglePlaces::Request do
     end
   end
 
-
+  context 'Spot details', vcr: { cassette_name: 'spot_set_fields' } do
+    it 'should retrieve a single spot' do
+      response = GooglePlaces::Request.spot(
+        :reference => @reference,
+        :key => api_key,
+        :fields => 'name,opening_hours',
+      )
+      expect(response['result']).to_not be_empty
+      expect(response['result']['name']).to_not be_empty
+      expect(response['result']['opening_hours']).to_not be_empty
+      expect(response['result']['rating']).to eq nil
+    end
+  end
 
   context 'Listing spots by radar', vcr: { cassette_name: 'list_spots_by_radar' } do
 
