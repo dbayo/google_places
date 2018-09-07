@@ -252,6 +252,7 @@ module GooglePlaces
       language  = options.delete(:language)
       region = options.delete(:region)
       retry_options = options.delete(:retry_options) || {}
+      fields = options.delete(:fields) || {}
       extensions = options.delete(:review_summary) ? 'review_summary' : nil
 
       request_options = {
@@ -259,7 +260,8 @@ module GooglePlaces
         :key => api_key,
         :language => language,
         :extensions => extensions,
-        :retry_options => retry_options
+        :retry_options => retry_options,
+        :fields => fields
       }
       request_options[:region] = region unless region.nil?
       response = Request.spot(request_options)
@@ -423,42 +425,42 @@ module GooglePlaces
     # @param [JSON] json_result_object a JSON object to create a Spot from
     # @return [Spot] a newly created spot
     def initialize(json_result_object, api_key)
-      @reference                  = json_result_object['reference']
-      @place_id                   = json_result_object['place_id']
-      @vicinity                   = json_result_object['vicinity']
-      @lat                        = json_result_object['geometry']['location']['lat']
-      @lng                        = json_result_object['geometry']['location']['lng']
-      @viewport                   = json_result_object['geometry']['viewport']
-      @name                       = json_result_object['name']
-      @icon                       = json_result_object['icon']
-      @types                      = json_result_object['types']
-      @id                         = json_result_object['id']
-      @formatted_phone_number     = json_result_object['formatted_phone_number']
-      @international_phone_number = json_result_object['international_phone_number']
-      @formatted_address          = json_result_object['formatted_address']
-      @address_components         = json_result_object['address_components']
+      @reference                  = json_result_object.dig('reference')
+      @place_id                   = json_result_object.dig('place_id')
+      @vicinity                   = json_result_object.dig('vicinity')
+      @lat                        = json_result_object.dig('geometry', 'location', 'lat')
+      @lng                        = json_result_object.dig('geometry', 'location', 'lng')
+      @viewport                   = json_result_object.dig('geometry', 'viewport')
+      @name                       = json_result_object.dig('name')
+      @icon                       = json_result_object.dig('icon')
+      @types                      = json_result_object.dig('types')
+      @id                         = json_result_object.dig('id')
+      @formatted_phone_number     = json_result_object.dig('formatted_phone_number')
+      @international_phone_number = json_result_object.dig('international_phone_number')
+      @formatted_address          = json_result_object.dig('formatted_address')
+      @address_components         = json_result_object.dig('address_components')
       @street_number              = address_component(:street_number, 'short_name')
       @street                     = address_component(:route, 'long_name')
       @city                       = address_component(:locality, 'long_name')
       @region                     = address_component(:administrative_area_level_1, 'long_name')
       @postal_code                = address_component(:postal_code, 'long_name')
       @country                    = address_component(:country, 'long_name')
-      @rating                     = json_result_object['rating']
-      @price_level                = json_result_object['price_level']
-      @opening_hours              = json_result_object['opening_hours']
-      @url                        = json_result_object['url']
-      @cid                        = json_result_object['url'].to_i
-      @website                    = json_result_object['website']
-      @zagat_reviewed             = json_result_object['zagat_reviewed']
-      @zagat_selected             = json_result_object['zagat_selected']
-      @aspects                    = aspects_component(json_result_object['aspects'])
-      @review_summary             = json_result_object['review_summary']
-      @photos                     = photos_component(json_result_object['photos'], api_key)
-      @reviews                    = reviews_component(json_result_object['reviews'])
-      @nextpagetoken              = json_result_object['nextpagetoken']
-      @events                     = events_component(json_result_object['events'])
-      @utc_offset                 = json_result_object['utc_offset']
-      @permanently_closed         = json_result_object['permanently_closed']
+      @rating                     = json_result_object.dig('rating')
+      @price_level                = json_result_object.dig('price_level')
+      @opening_hours              = json_result_object.dig('opening_hours')
+      @url                        = json_result_object.dig('url')
+      @cid                        = json_result_object.dig('url').to_i
+      @website                    = json_result_object.dig('website')
+      @zagat_reviewed             = json_result_object.dig('zagat_reviewed')
+      @zagat_selected             = json_result_object.dig('zagat_selected')
+      @aspects                    = aspects_component(json_result_object.dig('aspects'))
+      @review_summary             = json_result_object.dig('review_summary')
+      @photos                     = photos_component(json_result_object.dig('photos'), api_key)
+      @reviews                    = reviews_component(json_result_object.dig('reviews'))
+      @nextpagetoken              = json_result_object.dig('nextpagetoken')
+      @events                     = events_component(json_result_object.dig('events'))
+      @utc_offset                 = json_result_object.dig('utc_offset')
+      @permanently_closed         = json_result_object.dig('permanently_closed')
     end
 
     def [] (key)
